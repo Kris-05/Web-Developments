@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title> AGE CALCULATOR </title>
+        <style>
+            *{
+                box-sizing:border-box;
+            }
+            body{
+                display: flex;
+                margin: 0;
+                font-family: candara;
+                color: black;
+                display: grid;
+                place-items: center;
+            }
+            h1{
+                background-image: radial-gradient(
+                    circle 369px at -2.9% 12.9%,
+                    rgb(213, 247, 163) 0%,
+                    rgba(238, 180, 202, 0.56) 46.4%,
+                    rgb(229, 163, 247) 100.7%
+                );
+                padding: 10px;
+                border-radius: 10px;
+                box-shadow: 5px 15px 30px rgba(128, 128, 128, 0.384);
+                text-align:center;
+            }
+            .box{
+                background-image: radial-gradient(
+                    circle 369px at -2.9% 12.9%,
+                    rgba(247, 234, 163, 1) 0%,
+                    rgba(236, 180, 238, 0.56) 46.4%,
+                    rgba(163, 203, 247, 1) 100.7%
+                );
+                padding: 20px;
+                border-radius: 10px;
+                margin: 0 20px;
+                box-shadow: 5px 15px 30px rgba(128, 128, 128, 0.384);
+            }
+            label{
+                font-size: x-large;
+                font-weight: 500;
+                margin-right: 9px;
+            }
+            input{
+                padding: 10px;
+                border-radius: 10px;
+                border: none;
+                font-size: large;
+                outline: none;
+                box-shadow: 5px 15px 30px rgba(128, 128, 128, 0.25);
+            }
+            input:hover{
+                transform: scale(1.05,1.05);
+            }
+            .buton{
+                width: 90%;
+                margin: auto;
+                display: flex;
+                justify-content: space-around;
+                margin-top: 30px;
+            }
+            button{
+                width: 40%;
+                padding: 10px;
+                font-size: medium;
+                font-weight: bold;
+                border-radius: 10px;
+                border: none;
+                box-shadow: 5px 15px 30px rgba(128, 128, 128, 0.25);
+                transition: transform 0.2s;
+            }
+            button:hover{
+                transform: scale(1.15,1.15);
+            }
+            ul{
+                font-size: large;
+            }
+            li::marker{
+                color: blueviolet;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Age calculator</h1>
+        <main class="box">
+            <div class="input">
+                <label for="birthdate">Enter your birthday:</label>
+                <input type="date" id="birthdate"/>
+            </div>
+            <ul>
+                <li><span id="years"></span>Years</li>
+                <li><span id="months"></span>Months</li>
+                <li><span id="days"></span>Days</li>
+                <li><span id="hours"></span>Hours</li>
+                <li><span id="minutes"></span>Minutes</li>
+                <li><span id="seconds"></span>Seconds</li>
+            </ul>
+            <div class="buton">
+                <button onclick="calculate()">Calculate</button>
+                <button onclick="reset()">Reset</button>
+            </div>
+        </main>
+    </body>
+    <script>
+        function calculate(){
+            setInterval(() => {
+                    let birthdate = new Date(document.getElementById('birthdate').value);
+
+                    let date = new Date();
+                    var extra = 330*60*1000;; //IST is 5:30; i.e. 60*5+30 = 330 in minutes
+                    var IST = new Date(date.getTime()+extra);
+
+                    let msec = IST.getTime() - birthdate.getTime();
+                    let sec = msec / 1000;
+                    let mins = sec / 60;
+                    let hrs = mins / 60;
+                    let days = hrs / 24;
+                    let mth = days / 30.4375;
+                    let yr = mth / 12;
+
+                    document.querySelector('#years').innerHTML = Math.floor(yr);
+                    document.querySelector('#months').innerHTML = Math.floor(mth % 12);
+                    document.querySelector('#days').innerHTML = Math.floor(days % 30.4375);
+                    document.querySelector('#hours').innerHTML = Math.floor(hrs % 24);
+                    document.querySelector('#minutes').innerHTML = Math.floor(mins % 60);
+                    document.querySelector('#seconds').innerHTML = Math.floor(sec % 60);
+                    document.querySelector('#seconds').style.borderBottom = '1px grey solid';
+            }, 1000);
+        }
+        function reset (){
+            window.location.reload();
+        }
+    </script>
+</html>
