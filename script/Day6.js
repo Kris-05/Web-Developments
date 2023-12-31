@@ -10,7 +10,6 @@ function key(event){
 function createList(){
     let inputData = document.querySelector('.js-input-data');
     let data = inputData.value.trim();
-    // alert("Here",data , "is data");
     console.log(data);
 
     let inputDate = document.querySelector('.js-input-date');
@@ -21,17 +20,13 @@ function createList(){
     }
     else{
         todoList.push({
-            // data : data,
-            // date : date,
             date,
             data,
         }
         );
     }
-    // console.log(todoList);
     inputData.value = '';
     inputDate.value = '';
-    //whenever we change store in local storage
     display();
     store();
 }
@@ -40,11 +35,7 @@ function display(){
     let list = '';
     document.querySelector('.js-display').innerHTML = list;
     for(let i=0; i<todoList.length ;i++){
-        //now input is a object
         const input = todoList[i];
-        //We can also write like this
-        // const data = input.data;
-        // const date = input.date;
         let {data,date} = input;
 
         if(date === ''){
