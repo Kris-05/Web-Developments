@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List</title>
+    <link rel="stylesheet" href="styles/Day6.css">
+</head>
+<body>
+    <div class="to-do">
+        <h1>Todo List</h1>
+        <div class="input">
+            <input class="js-input-data ip-data" onkeydown="key(event)" placeholder="Enter a work" type="text">
+            <input class="js-input-date ip-date" onkeydown="key(event)" type="date">
+            <button class="add" onclick="createList()">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgba(0, 0, 0, 1);"><path d="M19 11h-6V5h-2v6H5v2h6v6h2v-6h6z"></path></svg>
+            </button>
+        </div>
+        <div class="js-display">
+
+        </div> 
+    </div>    
+</body>
+<script src="script/Day6.js"></script>
+</html>

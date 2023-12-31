@@ -1,0 +1,77 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    display: grid;
+    place-items: center;
+}
+h1{
+    margin-left: 150px;
+    margin-right: 150px;
+    background-image: radial-gradient(
+        circle 369px at -2.9% 12.9%,
+        rgb(213, 247, 163) 0%,
+        rgba(238, 180, 202, 0.56) 46.4%,
+        rgb(229, 163, 247) 100.7%
+    );
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 5px 15px 30px rgba(128, 128, 128, 0.384);
+    text-align:center;
+}
+.to-do{
+    height: auto;
+    width: auto;
+    padding: 30px;
+    background-image: radial-gradient(
+                    circle 369px at -2.9% 12.9%,
+                    rgba(247, 234, 163, 1) 0%,
+                    rgba(236, 180, 238, 0.56) 46.4%,
+                    rgba(163, 203, 247, 1) 100.7%
+    );
+    border-radius: 20px;
+}
+.input,
+.output{
+    display: grid;
+    grid-template-columns: 200px 150px 50px;
+    column-gap: 10px;
+    row-gap: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 5px 15px 30px rgba(128, 128, 128, 0.384);
+    margin-bottom:10px;
+}
+.input{
+    background-color: rgba(247, 234, 163, 1);
+}
+.output{
+    background-color: rgba(229, 163, 247, 1);
+   
+}
+.input{
+    margin-bottom: 10px;
+}
+.ip-data,.ip-date{
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+}
+
+.add,.del{
+    padding: 10px;
+    font-size: 17px;
+    border: none;
+    color: white;
+    background-color: green;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.del{
+    background-color: red;
+}
+.op-data,.op-date{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    background-color: white;
+}
